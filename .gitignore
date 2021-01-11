@@ -164,3 +164,7 @@ Temporary Items
 
 # Local History for Visual Studio Code
 .history/
+
+
+#Flask app
+static/*
