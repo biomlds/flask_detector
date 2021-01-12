@@ -1,5 +1,5 @@
 import os
-from os.path import join, dirname, realpath
+# from os.path import join, dirname, realpath
 from flask import Flask, flash, render_template, request, redirect, url_for, send_file
 from flask_uploads import IMAGES, UploadSet, configure_uploads
     
@@ -31,6 +31,7 @@ from detectron2.config import get_cfg
 from detectron2.utils.visualizer import Visualizer
 from detectron2.data import MetadataCatalog, DatasetCatalog
 
+from utils import get_model, run_model
 
 ##################
 ### Detectron2 ###
@@ -38,31 +39,7 @@ from detectron2.data import MetadataCatalog, DatasetCatalog
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu").type
 
-def get_model(tresh, device):
-    # adopted from Detectron2 tutorial
-    cfg = get_cfg()
-    cfg.MODEL.DEVICE=device
-    # add project-specific config (e.g., TensorMask) here if you're not running a model in detectron2's core library
-    cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"))
-    cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = tresh  # set threshold for this model
-    # Find a model from detectron2's model zoo. You can use the https://dl.fbaipublicfiles... url as well
-    cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
-    predictor = DefaultPredictor(cfg)
-    return(predictor)
-
 predictor = get_model(tresh=0.5, device=device)
-
-def run_model(im, predictor=predictor, path=app.config['UPLOADED_IMAGES_DEST']):
-    outputs = predictor(im)
-    # We can use `Visualizer` to draw the predictions on the image.
-    v = Visualizer(im[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
-    out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    processed_img = f"{path}detected_{im}"
-    out.save(processed_img)
-    # out_img = cv2_imshow(out.get_image()[:, :, ::-1])
-    return(processed_img)
-
-
 
 ################
 ### Fask APP ###
@@ -87,7 +64,7 @@ class Download(FlaskForm):
 @app.route('/show/<picture>', methods=['GET', 'POST'])
 def show(picture):
     download_form = Download()
-    processed_img = run_model(picture)
+    processed_img = run_model(picture, app.config['UPLOADED_IMAGES_DEST'])
     filename=app.config['UPLOADED_IMAGES_DEST']+processed_img
     
     if download_form.validate_on_submit(): 
