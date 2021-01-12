@@ -1,4 +1,4 @@
--f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.7/index.html
+-f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.7/index.html
 detectron2
 pyyaml==5.1
 opencv-python==4.5.1.48
