@@ -1,2 +1,1 @@
-web: gupip install gunicorn
-nicorn wsgi:app
+web: gunicorn wsgi:app
