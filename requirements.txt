@@ -2,10 +2,14 @@
 detectron2
 pyyaml==5.1
 opencv-python==4.5.1.48
-torch==1.7.0
-torchsummary==1.5.1
-torchtext==0.3.1
-torchvision==0.8.1
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.7.1+cpu 
+torchvision==0.8.2+cpu 
+#torchaudio==0.7.2 
+#torch==1.7.0
+#torchsummary==1.5.1
+#torchtext==0.3.1
+#torchvision==0.8.1
 #####
 certifi==2020.12.5
 click==7.1.2
