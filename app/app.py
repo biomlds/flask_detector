@@ -36,7 +36,7 @@ from detectron2.data import MetadataCatalog, DatasetCatalog
 ### Detectron2 ###
 ##################
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu").type
 
 def get_model(tresh, device):
     # adopted from Detectron2 tutorial
