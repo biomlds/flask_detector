@@ -13,6 +13,7 @@ from flask_uploads import configure_uploads, IMAGES, UploadSet
 # import some common libraries
 import numpy as np
 import os
+import torch
 # from google.colab.patches import cv2_imshow
 # from PIL import Image
 
