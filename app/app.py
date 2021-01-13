@@ -53,7 +53,7 @@ class Download(FlaskForm):
 @app.route('/show/<picture>', methods=['GET', 'POST'])
 def show(picture):
     download_form = Download()
-    processed_img = run_model(picture, app.config['UPLOADED_IMAGES_DEST'])
+    processed_img = run_model(picture, predictor, app.config['UPLOADED_IMAGES_DEST'])
     filename=app.config['UPLOADED_IMAGES_DEST']+processed_img
     
     if download_form.validate_on_submit(): 

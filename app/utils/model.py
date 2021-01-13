@@ -25,12 +25,13 @@ def get_model(tresh, device):
     return(predictor)
 
 
-def run_model(im, predictor, path):
+def run_model(pic, predictor, path):
+    im = cv2.imread(pic)
     outputs = predictor(im)
     # We can use `Visualizer` to draw the predictions on the image.
     v = Visualizer(im[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
     out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    processed_img = f"{path}detected_{im}"
+    processed_img = f"{path}detected_{pic}"
     out.save(processed_img)
     # out_img = cv2_imshow(out.get_image()[:, :, ::-1])
     return(processed_img)
