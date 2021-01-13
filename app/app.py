@@ -9,11 +9,6 @@ from wtforms import FileField, SubmitField
 from flask_uploads import configure_uploads, IMAGES, UploadSet
 
 
-# Some basic setup for Detectron2:
-# Setup detectron2 logger
-import detectron2
-from detectron2.utils.logger import setup_logger
-setup_logger()
 
 # import some common libraries
 import numpy as np
@@ -25,11 +20,6 @@ import os
 
 # import some common detectron2 utilities
 import torch
-from detectron2 import model_zoo
-from detectron2.engine import DefaultPredictor
-from detectron2.utils.visualizer import Visualizer
-from detectron2.data import MetadataCatalog, DatasetCatalog
-
 from app.utils.model import get_model, run_model
 
 ##################
