@@ -1,3 +1,5 @@
+from detectron2.config import get_cfg
+
 def get_model(tresh, device):
     # adopted from Detectron2 tutorial
     cfg = get_cfg()
