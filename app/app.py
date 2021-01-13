@@ -26,9 +26,6 @@ from app.utils.model import get_model, run_model
 ### Detectron2 ###
 ##################
 
-device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu").type
-
-predictor = get_model(tresh=0.5, device=device)
 
 ################
 ### Fask APP ###
@@ -53,6 +50,9 @@ class Download(FlaskForm):
 @app.route('/show/<picture>', methods=['GET', 'POST'])
 def show(picture):
     download_form = Download()
+
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu").type
+    predictor = get_model(tresh=0.5, device=device) 
     processed_img = run_model(picture, predictor, app.config['UPLOADED_IMAGES_DEST'])
     filename=app.config['UPLOADED_IMAGES_DEST']+processed_img
     
