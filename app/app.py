@@ -13,14 +13,12 @@ from flask_uploads import configure_uploads, IMAGES, UploadSet
 # import some common libraries
 import numpy as np
 import os
-import torch
 # from google.colab.patches import cv2_imshow
 # from PIL import Image
 
 
 
 # import some common detectron2 utilities
-import torch
 from app.utils.model import run_model
 
 ##################
@@ -62,7 +60,6 @@ def index():
 def show(picture):
     download_form = Download()
 
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu").type
     processed_img = f"{app.config['UPLOADED_IMAGES_DEST']}detected_{picture}"
     model, result = run_model(img)
 
