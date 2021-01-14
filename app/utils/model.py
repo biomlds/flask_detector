@@ -1,37 +1,28 @@
-# Some basic setup for Detectron2:
-# Setup detectron2 logger
-# import detectron2
-from detectron2.utils.logger import setup_logger
-# setup_logger()
-import cv2
-from detectron2.config import get_cfg
-from detectron2 import model_zoo
-from detectron2.engine import DefaultPredictor
-from detectron2.utils.visualizer import Visualizer
-from detectron2.data import MetadataCatalog #, DatasetCatalog
+from mmdet.apis import inference_detector, init_detector, show_result_pyplot, show_result_pyplot
+import requests
+from os import chdir, system, path
 
-def get_model(tresh, device):
-    # adopted from Detectron2 tutorial
-    cfg = get_cfg()
-    cfg.MODEL.DEVICE=device
-    # add project-specific config (e.g., TensorMask) here if you're not running a model in detectron2's core library
-    # cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml"))
-    cfg.merge_from_file(model_zoo.get_config_file("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml"))
-    cfg.MODEL.ROI_HEADS.SCORE_THRESH_TEST = tresh  # set threshold for this model
-    # Find a model from detectron2's model zoo. You can use the https://dl.fbaipublicfiles... url as well
-    # cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml")
-    cfg.MODEL.WEIGHTS = model_zoo.get_checkpoint_url("COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml")
-    predictor = DefaultPredictor(cfg)
-    return(predictor)
+def get_model(weights, config):
 
+    system('mkdir -p model_config')
 
-def run_model(pic, predictor, path):
-    im = cv2.imread(pic)
-    outputs = predictor(im)
-    # We can use `Visualizer` to draw the predictions on the image.
-    v = Visualizer(im[:, :, ::-1], MetadataCatalog.get(cfg.DATASETS.TRAIN[0]), scale=1.2)
-    out = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-    processed_img = f"{path}detected_{pic}"
-    out.save(processed_img)
-    # out_img = cv2_imshow(out.get_image()[:, :, ::-1])
-    return(processed_img)
+    weights_path = f"model_config/{weights.split('/')[-1]}"
+    if not path.exists(weights_path):
+      url = f'{weights}'
+      r = requests.get(url)
+      open(weights_path, 'wb').write(r.content)
+
+    return 'Model donloaded!'
+
+def run_model(img,
+              weights='https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth',
+              config='src/mmdetection/configs/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco.py'):
+    
+    get_model(weights, config)
+    weights_path = f"model_config/{weights.split('/')[-1]}"
+    print(config_path, weights_path)
+    model = init_detector(config, weights_path, device='cpu')
+    # Use the detector to do inference
+    result = inference_detector(model, img)
+
+    return model, result
