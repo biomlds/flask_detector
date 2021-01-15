@@ -6,9 +6,9 @@ requests
 torch==1.6.0+cpu
 torchvision==0.7.0+cpu
 
-pycocotools-fix
-
-#git+git:/https://github.com/cocodataset/cocoapi.git#egg=cocoapi
+#pycocotools-fix
+git+https://github.com/biomlds/cocoapi.git
+#git+/https://github.com/cocodataset/cocoapi.git#egg=cocoapi
 
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full==1.2.5
