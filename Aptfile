@@ -5,3 +5,4 @@ python-numpy
 build-essential
 gcc-9
 cython
+Cython
