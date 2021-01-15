@@ -6,7 +6,7 @@ torchvision==0.7.0+cpu
 mmcv-full==1.2.4
 
 
--e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
+#-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
 #git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
 mmdet
 numpy
