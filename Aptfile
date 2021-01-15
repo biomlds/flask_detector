@@ -2,3 +2,4 @@ libgl1
 libgl1-mesa-glx
 python3-numpy
 python-numpy
+build-essential
