@@ -17,9 +17,9 @@ mmcv
 Cython>=0.27.3
 numpy
 #pycocotools-fix
-#git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
+-e git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
 
-#-e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
+-e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
 #git+git://github.com/biomlds/mmdetection.git#egg=mmdet
 -e git+git://github.com/biomlds/mmpycocotools-12.0.3.git#egg=mmpycocotools
 
