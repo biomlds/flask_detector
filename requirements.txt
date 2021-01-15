@@ -17,8 +17,8 @@ numpy
 pycocotools-fix
 #git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
 
--e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
-git+git://github.com/biomlds/mmdetection.git#egg=mmdet
+#-e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
+#git+git://github.com/biomlds/mmdetection.git#egg=mmdet
 mmdet
 
 Pillow==7.0.0
