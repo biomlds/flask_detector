@@ -16,7 +16,7 @@ mmcv-full==1.2.5
 cython
 numpy
 
--e git+git://github.com/open-mmlab/mmdetection.git
+-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
 git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
 #mmdet
 Pillow==7.0.0
