@@ -19,7 +19,7 @@ pycocotools-fix
 
 -e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
 git+git://github.com/biomlds/mmdetection.git#egg=mmdet
-#mmdet
+mmdet
 
 Pillow==7.0.0
 
