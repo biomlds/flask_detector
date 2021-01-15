@@ -13,8 +13,10 @@ git+git://github.com/biomlds/cocoapi.git#egg=cocoapi
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full==1.2.5
 
+cython
+numpy
 
-# -e git+git://github.com/open-mmlab/mmdetection.git
-# git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
-mmdet
+-e git+git://github.com/open-mmlab/mmdetection.git
+git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
+#mmdet
 Pillow==7.0.0
