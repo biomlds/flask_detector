@@ -3,3 +3,5 @@ libgl1-mesa-glx
 python3-numpy
 python-numpy
 build-essential
+gcc-9
+cython

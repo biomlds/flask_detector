@@ -1,6 +1,7 @@
 six
 terminaltables
 requests
+future
 
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
@@ -13,7 +14,7 @@ torchvision==0.7.0+cpu
 #mmcv-full
 mmcv
 
-cython
+cython>=0.27.3
 numpy
 pycocotools-fix
 #git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
