@@ -1,7 +1,6 @@
 six
 terminaltables
 requests
-gcc
 
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
