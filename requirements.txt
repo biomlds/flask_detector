@@ -1,4 +1,3 @@
-gunicorn
 six
 terminaltables
 requests
