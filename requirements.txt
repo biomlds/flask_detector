@@ -14,7 +14,7 @@ torchvision==0.7.0+cpu
 #mmcv-full
 mmcv
 
-cython>=0.27.3
+Cython>=0.27.3
 numpy
 pycocotools-fix
 #git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
