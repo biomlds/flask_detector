@@ -6,9 +6,9 @@ torchvision==0.7.0+cpu
 mmcv-full==1.2.4
 numpy
 
-#-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
+-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
 #git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
-mmdet
+#mmdet
 Pillow==7.0.0
 #####
 certifi==2020.12.5
