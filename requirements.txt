@@ -14,8 +14,10 @@ mmcv-full
 
 cython
 numpy
+pycocotools-fix
 
 #-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
 #git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
-pycocotools-fix, mmdet
+#mmdet
+
 Pillow==7.0.0
