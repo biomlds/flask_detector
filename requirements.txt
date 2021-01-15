@@ -10,13 +10,13 @@ torchvision==0.7.0+cpu
 #git+/https://github.com/cocodataset/cocoapi.git#egg=cocoapi
 
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
-mmcv-full==1.2.5
+mmcv-full==1.2.
 
 cython
 numpy
-#pycocotools-fix
+pycocotools-fix
 
--e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
-git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
-#mmdet
+#-e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
+#git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
+mmdet
 Pillow==7.0.0
