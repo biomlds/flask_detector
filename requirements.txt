@@ -1,8 +1,9 @@
 matplotlib 
+numpy
 mmpycocotools
 six
 terminaltables
-numpy
+
 
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
@@ -10,7 +11,6 @@ torchvision==0.7.0+cpu
 
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full==1.2.5
-numpy
 
 -e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
 git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
