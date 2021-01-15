@@ -1,36 +1,18 @@
-matplotlib
-numpy
-pycocotools-fix
-mmpycocotools
 six
 terminaltables
 requests
 
-
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
-torchvision==0.7.0+cpu 
+torchvision==0.7.0+cpu
+
+pycocotools-fix
 
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full==1.2.5
 
--e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
-git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
-#mmdet
-Pillow==7.0.0
-#####
-certifi==2020.12.5
-click==7.1.2
-dominate==2.6.0
-Flask==1.1.2
-Flask-Reuploaded==0.4.0
-Flask-Uploads==0.2.1
-Flask-WTF==0.14.3
-gunicorn==20.0.4
-itsdangerous==1.1.0
-Jinja2==2.11.2
-MarkupSafe==1.1.1
-visitor==0.1.3
-Werkzeug==0.16.0
-WTForms==2.3.3
 
+# -e git+git://github.com/open-mmlab/mmdetection.git#egg=mmdetection
+# git+git://github.com/open-mmlab/mmdetection.git#egg=mmdet
+mmdet
+Pillow==7.0.0
