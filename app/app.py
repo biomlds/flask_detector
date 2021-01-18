@@ -19,7 +19,7 @@ import os
 
 
 # import some common detectron2 utilities
-from app.utils.model import run_model
+from utils.model import run_model
 
 ##################
 ### Detectron2 ###
@@ -61,6 +61,7 @@ def show(picture):
     download_form = Download()
 
     processed_img = f"{app.config['UPLOADED_IMAGES_DEST']}detected_{picture}"
+    img = f"{app.config['UPLOADED_IMAGES_DEST']}{picture}"
     model, result = run_model(img)
 
     model.show_result(img,result, score_thr=0.5, show=False,
@@ -77,4 +78,4 @@ def show(picture):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)

@@ -2,10 +2,10 @@ import requests
 from os import chdir, system, path
 
 def get_model(weights, config):
-    system('git clone https://github.com/open-mmlab/mmdetection.git')
-    system('cd mmdetection')
-    system('pip install -e .')
-    system('cd ..')
+    #system('git clone https://github.com/open-mmlab/mmdetection.git')
+    #system('cd mmdetection')
+    #system('pip install -e .')
+    #system('cd ..')
     system('mkdir -p model_config')
 
     weights_path = f"model_config/{weights.split('/')[-1]}"
@@ -24,7 +24,7 @@ def run_model(img,
     
     get_model(weights, config)
     weights_path = f"model_config/{weights.split('/')[-1]}"
-    print(config_path, weights_path)
+    #print(config_path, weights_path)
     model = init_detector(config, weights_path, device='cpu')
     # Use the detector to do inference
     result = inference_detector(model, img)
