@@ -32,7 +32,7 @@ from utils.model import run_model, get_model
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisisasecret'
-app.config['UPLOADED_IMAGES_DEST'] = 'app/static/img/'
+app.config['UPLOADED_IMAGES_DEST'] = 'static/img/'
 app.config['PREFERRED_URL_SCHEME'] = 'https'
 
 images = UploadSet('images', IMAGES)
@@ -82,7 +82,8 @@ def show(picture):
     if download_form.validate_on_submit():
         print('send_file############processed_img:', processed_img)
         print(app.root_path, app.config['UPLOADED_IMAGES_DEST'])
-        return send_file('/flask_detect/app/static/img/'+processed_filename, as_attachment=True)
+        # return send_file('/flask_detect/app/static/img/'+processed_filename, as_attachment=True)
+        return send_file(app.config['UPLOADED_IMAGES_DEST']+processed_filename, as_attachment=True)
         # return send_from_directory(app.config['UPLOADED_IMAGES_DEST'],
         #                        processed_filename, as_attachment=True)
     return render_template('show.html', pic=filename, form=download_form)

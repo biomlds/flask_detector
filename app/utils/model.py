@@ -20,8 +20,8 @@ from mmdet.apis import inference_detector, init_detector, show_result_pyplot, sh
 
 def run_model(img,
               #weights='https://open-mmlab.s3.ap-northeast-2.amazonaws.com/mmdetection/v2.0/mask_rcnn/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth',
-              weights='app/model_configs/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth',
-              config='mmdetection/configs/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco.py'):
+              weights='model_configs/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth',
+              config='../mmdetection/configs/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco.py'):
     
     #get_model(weights, config)
     #weights_path = f"model_config/{weights.split('/')[-1]}"
