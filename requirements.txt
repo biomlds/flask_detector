@@ -2,29 +2,15 @@ six
 terminaltables
 requests
 future
-
 -f https://download.pytorch.org/whl/torch_stable.html
 torch==1.6.0+cpu
 torchvision==0.7.0+cpu
-
-#git+git://github.com/biomlds/cocoapi.git#egg=cocoapi
-#git+/https://github.com/cocodataset/cocoapi.git#egg=cocoapi
-
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full
-#mmcv
-
 Cython>=0.27.3
 numpy
 pycocotools-fix
-#git+https://github.com/biomlds/cocoapi.git#subdirectory=PythonAPI
-
--e git+git://github.com/biomlds/mmdetection.git#egg=mmdetection
-git+git://github.com/biomlds/mmdetection.git#egg=mmdet
-#-e git+git://github.com/biomlds/mmpycocotools-12.0.3.git#egg=mmpycocotools
-
 Pillow==7.0.0
-
 click==7.1.2
 dominate==2.6.0
 Flask==1.1.2
@@ -38,5 +24,3 @@ MarkupSafe==1.1.1
 visitor==0.1.3
 Werkzeug==0.16.0
 WTForms==2.3.3
-
-#mmdet

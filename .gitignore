@@ -168,3 +168,6 @@ Temporary Items
 
 #Flask app
 static/*
+
+#mmdetection
+*.pth

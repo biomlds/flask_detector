@@ -1,6 +1,6 @@
 import os
 # from os.path import join, dirname, realpath
-from flask import Flask, flash, render_template, request, redirect, url_for, send_file
+from flask import Flask, flash, render_template, request, redirect, url_for, send_from_directory, send_file
 from flask_uploads import IMAGES, UploadSet, configure_uploads
     
 from flask import Flask, render_template
@@ -19,7 +19,7 @@ import os
 
 
 # import some common detectron2 utilities
-from utils.model import run_model
+from utils.model import run_model, get_model
 
 ##################
 ### Detectron2 ###
@@ -32,7 +32,8 @@ from utils.model import run_model
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'thisisasecret'
-app.config['UPLOADED_IMAGES_DEST'] = 'static/img/'
+app.config['UPLOADED_IMAGES_DEST'] = 'app/static/img/'
+app.config['PREFERRED_URL_SCHEME'] = 'https'
 
 images = UploadSet('images', IMAGES)
 configure_uploads(app, images)
@@ -50,32 +51,44 @@ def index():
 
     if upload_form.validate_on_submit(): 
         filename = images.save(upload_form.image.data)
-        print('show.html')
+        processed_filename = f"detected_{filename}"
+
+        img = f"{app.config['UPLOADED_IMAGES_DEST']}{filename}"
+        processed_img = f"{app.config['UPLOADED_IMAGES_DEST']}{processed_filename}"
+        print('UPLOADED_IMAGES_DEST', app.config['UPLOADED_IMAGES_DEST'])
+        print('processed_img: ', processed_img, '##################')
+        model, result = run_model(img=img)
+        model.show_result(img, result, score_thr=0.5, show=False,
+                    #wait_time=0.1,
+                    # fig_size=(5,5),
+                    win_name=processed_filename,
+                    # bbox_color=(72, 101, 241),
+                    # text_color=(72, 101, 241),
+                    out_file=processed_img) 
+
         return redirect(url_for('show', picture=filename))
-        print('SAVED: ', filename)
 
     return render_template('index.html', form=upload_form)
     
 @app.route('/show/<picture>', methods=['GET', 'POST'])
 def show(picture):
     download_form = Download()
-
-    processed_img = f"{app.config['UPLOADED_IMAGES_DEST']}detected_{picture}"
-    img = f"{app.config['UPLOADED_IMAGES_DEST']}{picture}"
-    model, result = run_model(img)
-
-    model.show_result(img,result, score_thr=0.5, show=False,
-                        wait_time=0.1,
-                        fig_size=(5,5),
-                        win_name='title',
-                        bbox_color=(72, 101, 241),
-                        text_color=(72, 101, 241),
-                        out_file=processed_img) 
     
-    if download_form.validate_on_submit(): 
-        return send_file(processed_img, as_attachment=True)
-    return render_template('show.html', pic=processed_img, form=download_form)
+    filename = f"{picture}"
+    processed_filename = f"detected_{picture}"
+    img = f"{app.config['UPLOADED_IMAGES_DEST']}{filename}"
+    processed_img = f"{app.config['UPLOADED_IMAGES_DEST']}{processed_filename}"
+
+    if download_form.validate_on_submit():
+        print('send_file############processed_img:', processed_img)
+        print(app.root_path, app.config['UPLOADED_IMAGES_DEST'])
+        return send_file('/flask_detect/app/static/img/'+processed_filename, as_attachment=True)
+        # return send_from_directory(app.config['UPLOADED_IMAGES_DEST'],
+        #                        processed_filename, as_attachment=True)
+    return render_template('show.html', pic=filename, form=download_form)
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=5000,debug=True,use_reloader=True)
+    app.run(host="0.0.0.0",port=5000,debug=False,use_reloader=True)
+
+
