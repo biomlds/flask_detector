@@ -1,13 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <h1 class="display-5">MMdetection web-app</h1>
 
 <p>Please, upload an image for object detection.</p>
 
-  <form method='POST'  enctype="multipart/form-data">
-    {{ form.csrf_token}}
+  <form method='POST' enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
     {{ form.image }}
     <br>
     <span class="validation_error" style="color:red">{{ ', '.join(form.image.errors) }} </span><br>

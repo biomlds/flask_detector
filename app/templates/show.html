@@ -2,23 +2,32 @@
 {% block content %}
 
 <h1 class="display-5">MMdetection web-app</h1>
-<br>
-<h3 class="display-5">Results of object detection</h1>
-<img src="{{url_for('static', filename='img/detected_'+pic)}}"  class="rounded mx-auto d-block">
-<br></br>
-<form method='POST'  method="post" enctype="multipart/form-data">
+
+{% if job_complete %}
   <br>
-  {{ form.csrf_token}}
-  <!-- {{ form.submit }} -->
+  <h3 class="display-5">Result of object detection</h1>
+    <br>
+  <img src="{{url_for('static', filename='img/detected_'+pic)}}"  class="rounded mx-auto d-block">
+     
   <br>
-  <input type=submit class='btn btn-primary' value='Download'>
+  <br>
+  <form method='POST' enctype="multipart/form-data">
+    <br>
+    {{ form.hidden_tag() }}
+    <!-- {{ form.submit }} -->
+    <br>
+    <input type=submit class='btn btn-primary' value='Download'>
+  </form>
+  
+   
+{% else %}
+  <br>
+  <br>
+  <h3> Submitted image is being processed. Please, wait... <i class="fas fa-sync fa-spin"></i> </h3>
+  <div class="loader"></div> 
+  <meta http-equiv="refresh" content="5"> 
+{% endif %}
+
+
               
-{% endblock %}             
-            
-
-    
-
-    
-
-
-
+{% endblock %}

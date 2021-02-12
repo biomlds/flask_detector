@@ -1,0 +1,21 @@
+
+version: '3'
+services:
+  rnabio:
+    container_name: flask
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/workspace/rnaseq/
+    ports:
+      - "8765:8765"
+    #stdin_open: 
+      #true # docker run -i
+    #tty: 
+    #  true        # docker run -t
+  
+  redis:
+    image: redis:alpine
+    ports:
+      - "7777:7777"
