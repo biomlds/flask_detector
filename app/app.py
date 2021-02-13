@@ -5,7 +5,7 @@ from wtforms import SubmitField
 from flask_wtf.file import FileField, FileRequired, FileAllowed
 
 import numpy as np
-from app.utils.model import run_model, get_model
+# from app.utils.model import run_model, get_model
 from redis import Redis
 import os
 import time

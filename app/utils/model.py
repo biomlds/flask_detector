@@ -10,4 +10,4 @@ def run_model(img, processed_filename, processed_img,
 
     model.show_result(img, result, score_thr=0.5, show=False,
                 win_name=processed_filename,
-                out_file=processed_img)
+                out_file=processed_img) 
