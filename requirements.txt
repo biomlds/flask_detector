@@ -10,7 +10,7 @@ Cython>=0.27.3
 numpy==1.19.5
 #future
 #pycocotools-fix
-Pillow==7.0.0
+Pillow>=7.1.0
 click==7.1.2
 dominate==2.6.0
 Flask==1.1.2
