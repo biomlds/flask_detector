@@ -33,7 +33,8 @@ A user uploads a picture and gets back a detected image. The result can be downl
     6. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
 
 __NOTE:__ 
-  - The app was deployed on a free `heroku` dyno. Due to RAM limit of the virtual machine it tends to crash quite often. 
+  - As a proove of concept, the app was deployed on a free `heroku` dyno: [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com). 
+  - Due to 500 Mb RAM limit of the virtual machine it tends to crash quite often. For stable work either use the docker container or deploy on a server with 1Gb of RAM.
   - `flask-detector` was tested in a local docker container.
 
 ## MMDetection
