@@ -25,9 +25,9 @@ A user uploads a picture and gets back a detected image. The result can be downl
 - ### Heroku
 
     1. `heroku create -a flask-detector`
-    2. `heroku container:push web`
-    3. Set a secret key: `heroku config:set SECRET_KEY=Your_Secret_Key`
-    4. `heroku container:release web`
+    2. `heroku container:push -a flask-detector web`
+    3. Set a secret key: `heroku config:set -a flask-detector SECRET_KEY=Your_Secret_Key`
+    4. `heroku container:release -a flask-detector web`
     5. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
 
 __NOTE:__ 
