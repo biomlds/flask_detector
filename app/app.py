@@ -72,7 +72,6 @@ def show(picture, job_id):
     if download_form.validate_on_submit() and job_complete:
         print(processed_img)
         return send_from_directory(app.config['DOWNLOAD_IMAGES_DEST'], processed_filename, as_attachment=True)
-        # return send_file(app.config['UPLOADED_IMAGES_DEST']+processed_filename, as_attachment=True)
 
     return render_template('show.html', pic=filename, job_id=job_id, job_complete=job_complete, form=download_form)
 

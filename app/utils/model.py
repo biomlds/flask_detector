@@ -2,12 +2,12 @@ import requests
 from os import chdir, system, path
 from mmdet.apis import inference_detector, init_detector, show_result_pyplot, show_result_pyplot
 
-model='../model_configs/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth'
+parameters='../model_configs/mask_rcnn_r50_caffe_fpn_mstrain-poly_3x_coco_bbox_mAP-0.408__segm_mAP-0.37_20200504_163245-42aa3d00.pth'
 config='../mmdetection/configs/mask_rcnn/mask_rcnn_r50_caffe_fpn_1x_coco.py'
 
-def run_model(img, processed_filename, processed_img, weights,config):
+def run_model(img, processed_filename, processed_img, model=model,config=config):
 
-    model = init_detector(config, weights, device='cpu')
+    model = init_detector(config, parameters, device='cpu')
     result = inference_detector(model, img)
 
     model.show_result(img, result, score_thr=0.5, show=False,
