@@ -20,16 +20,15 @@ A user uploads a picture and gets back a detected image. The result can be downl
   1. Install [Docker](https://www.docker.com/products/docker-desktop)
   2. `docker build --rm -t flask-detector .`
   3. `docker run -p 5000:5000   -it flask-detector`
-  4. Open [https://0.0.0.0:5000](https://0.0.0.0:5000)
+  4. Open [http://0.0.0.0:5000](https://0.0.0.0:5000)
 
 - ### Heroku
 
     1. `heroku create -a flask-detector`
     2. `heroku container:push web`
     3. Set a secret key: `heroku config:set SECRET_KEY=Your_Secret_Key`
-    4. `heroku container:push web`
-    5. `heroku container:release web`
-    6. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
+    4. `heroku container:release web`
+    5. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
 
 __NOTE:__ 
   - As a prove of concept, the app was deployed on a free `heroku` dyno: [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com). 
