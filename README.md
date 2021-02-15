@@ -49,10 +49,10 @@ Following pictures contained objects from the COCO dataset and were successfully
 - street ![street](test_images/detected_street.jpg)
 
 When it comes to unusual surroudings, the model performance suffers. Let's consider following examples:
-- diving1 ![diving1](test_images/detected_diving1.jpg)
-- diving2 ![diving2](test_images/detected_diving2.jpg)
+- diving1   ![diving1](test_images/detected_diving1.jpg)
+- diving2   ![diving2](test_images/detected_diving2.jpg)
 
-While the model is able to recognize the diver, it fails to detect the fish (e.g. diving1) or even misidentify it as a bird (diving2)
+While the model is able to recognize a diver, it fails to detect a fish (e.g. diving1) or even misidentify it as a bird (diving2)
 
 Sometimes the network produces conflicting result for the same class of objects it never saw. For example, lemurs are classified as a cat, dog and bird as those examples were in the training dataset:
 - zoo ![zoo](test_images/detected_zoo.jpg)
