@@ -30,6 +30,9 @@ A user uploads a picture and gets back a detected image. The result can be downl
     4. `heroku container:release -a flask-detector web`
     5. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
 
+_ #### Live server
+https://flask-detector.herokuapp.com/
+
 __NOTE:__ 
   - As a prove of concept, the app was deployed on a free `heroku` dyno: [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com). 
   - Due to 500 Mb RAM limit of the free `heroku` instance it tends to crash. For stable work either use the docker container or deploy on a server with 1Gb+ of RAM.
