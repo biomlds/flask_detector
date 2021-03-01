@@ -30,8 +30,8 @@ A user uploads a picture and gets back a detected image. The result can be downl
     4. `heroku container:release -a flask-detector web`
     5. `heroku open` or open [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com)
 
-_ #### Live server
-https://flask-detector.herokuapp.com/
+- #### Live server
+  - https://flask-detector.herokuapp.com/
 
 __NOTE:__ 
   - As a prove of concept, the app was deployed on a free `heroku` dyno: [https://flask-detector.herokuapp.com](https://flask-detector.herokuapp.com). 
