@@ -7,7 +7,7 @@ torchvision==0.7.0+cpu
 -f https://download.openmmlab.com/mmcv/dist/cpu/torch1.6.0/index.html
 mmcv-full
 Cython>=0.27.3
-numpy==1.19.5
+numpy==1.22.0
 #future
 #pycocotools-fix
 Pillow>=7.1.0
